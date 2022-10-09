@@ -3,11 +3,15 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Person {
 
     String name, town = "unknown";
     int age = 0;
+
+    List<Person> p = new ArrayList<>();
 
 
     public Person(String name, String town, int age){
@@ -32,37 +36,24 @@ public class Person {
         this.age = age;
     }
 
-    static String lectura() throws IOException {
+    @Override
+    public String toString() {
 
-        String output = "";
+        if(this.age == 0){
+            return "Name: " + this.name + " Town: " + this.town + " Age: " + "unknown";
 
-        String path  = "C:/Users/patrick.oliver/Desktop/people.csv";
-
-        FileReader fr = new FileReader(path);
-
-        BufferedReader br = new BufferedReader(fr);
-
-        String line = br.readLine();
-
-        while (line != null){
-            output += line+"\n";
-            line = br.readLine();
         }
 
-        br.close();
+        if(this.town.equals("")){
+            return "Name: " + this.name + " Town: " + "unknown" + " Age: " +  this.age;
 
-        return output;
+        }
 
+        if(this.age == 0 && this.town.equals("")){
+            return "Name: " + this.name + " Town: " + "unknown" + " Age: " + "unknown";
 
+        }
 
-
-
-
-
-
-
-
+        return "Name: " + this.name + " Town: " + this.town + " Age: " + this.age ;
     }
-
-
 }
