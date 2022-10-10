@@ -13,7 +13,7 @@ public class Person {
 
     List<Person> p = new ArrayList<>();
 
-
+    // Constructores de la clase persona sobrecargados. Solo el parámetro name es imprescindible
     public Person(String name, String town, int age){
         this.name = name;
         this.town = town;
@@ -36,6 +36,8 @@ public class Person {
         this.age = age;
     }
 
+
+    //Sobreescribimos el método toString() para que imprima por pantalla los atributos de nuestra Person al gusto
     @Override
     public String toString() {
 

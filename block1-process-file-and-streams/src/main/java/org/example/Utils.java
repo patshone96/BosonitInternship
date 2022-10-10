@@ -10,11 +10,13 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Utils {
+
+    // Método para leer un fichero con personas y devolver una colección de personas
     public static List<Person> lectura() throws IOException {
 
         List<Person> personas = new ArrayList<>();
 
-        String path  = "C:/Users/patrick.oliver/Desktop/people.csv";
+        String path  = "../block1-process-file-and-streams/src/main/java/org/example/people.csv";
 
         FileReader fr = new FileReader(path);
 
@@ -59,6 +61,7 @@ public class Utils {
 
     }
 
+    // Método para que al recibir una colección de personas, nos devuelva otra con las menores de 25
     public static List<Person> menores25(List<Person> pers){
 
         List<Person> salida= new ArrayList<>();
@@ -66,24 +69,26 @@ public class Utils {
         Stream<Person> stream = pers.stream();
 
        stream.filter(p -> p.age<25 && p.age>0)
-                .forEach(p -> salida.add(p));
+                .forEach(salida::add);
 
 
         return salida;
     }
 
+    // Método para que al recibir una colección de personas, nos devuelva otra con las que no empiezan por A
     public static List<Person> sinAinicial(List<Person> pers){
         List<Person> sinA = new ArrayList<>();
 
         Stream<Person> st = pers.stream();
 
         st.filter(s -> s.name.matches("^[^A]"))
-                .forEach(s -> sinA.add(s));
+                .forEach(sinA::add);
 
         return sinA;
 
     }
 
+    // Método para leer streams de personas e imprimirlos por pantalla
     public static void leerStream(Stream<Person> st){
         st.forEach(s -> System.out.println(s.toString()));
 
