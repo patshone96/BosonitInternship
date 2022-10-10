@@ -17,7 +17,7 @@ public class Utils {
 
         List<Person> personas = new ArrayList<>();
 
-        String path  = "./BosonitPracticas/block1-process-file-and-streams/src/main/java/org/example/people.csv";
+        String path  = "../BosonitPracticas/block1-process-file-and-streams/src/main/java/org/example/people.csv";
 
         FileReader fr = new FileReader(path);
 
