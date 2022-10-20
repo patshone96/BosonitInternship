@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Second implements CommandLineRunner {
 
+    //Creamos la segunda clase, que implementa CLR y completamos el método run()
+    // Para que nos diga que estamos en la segunda clase
 
     @Override
     public void run(String... args) throws Exception {

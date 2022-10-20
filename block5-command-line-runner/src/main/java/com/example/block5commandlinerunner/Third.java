@@ -2,14 +2,10 @@ package com.example.block5commandlinerunner;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -17,21 +13,22 @@ import java.util.stream.Stream;
 public class Third implements CommandLineRunner {
 
 
+    //Para poder cargar valores, se tiene que modificar el archivo application.properties, añadiendo los valores
+    @Value("${project.name}")
+    private String nombreProyecto;
 
-    public void imprimeParametros(String... args){
-        List<String> al = Arrays.asList(args);
+    @Value("${participants}")
+    private String[] participants;
 
-        Stream<String> stream = al.stream();
-
-        stream.forEach(System.out::println);
-
-    }
-
+    // Ahora podemos usar los valores cargados dentro del método run()
+    // Este nos va a decir que estamos en la tercera clase y sacara los valores cargados
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Soy la tercera clase");
-
-
+        System.out.println("Este es el proyecto"+nombreProyecto);
+        System.out.println("Los participantes son: ");
+        Stream<String> stream = Arrays.asList(participants).stream();
+        stream.forEach(System.out::println);
 
 
     }

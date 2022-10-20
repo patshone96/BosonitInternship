@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8818b40c-ccd5-43b5-bfd5-92503b2307c2" name="Changes" comment="">
+    <list default="true" id="8818b40c-ccd5-43b5-bfd5-92503b2307c2" name="Changes" comment="Arreglos varios en Bloque 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block1-process-file-and-streams.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/CLRApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/CLRApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/Third.java" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/Third.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1665734803578</updated>
     </task>
+    <task id="LOCAL-00001" summary="Arreglos varios en Bloque 1">
+      <created>1666087436260</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666087436260</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,5 +91,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Arreglos varios en Bloque 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglos varios en Bloque 1" />
   </component>
 </project>
