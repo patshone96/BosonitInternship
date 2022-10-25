@@ -18,7 +18,7 @@ public class Block5PropertiesApplication {
 		SpringApplication.run(Block5PropertiesApplication.class, args);
 	}
 
-	//Importamos los valores de applications.properties con la anotación @Value
+	//Importamos los valores de applications.properties o de applications.yml con la anotación @Value
 
 	@Value("${greeting}")
 	private String greeting;
@@ -26,13 +26,12 @@ public class Block5PropertiesApplication {
 	@Value("${my.number}")
 	private int myNumber;
 
-	// Como new.property no existe en el fichero applications.properties usamos la notación
+	// Como new.property no existe en el fichero applications.properties/ applications.yml usamos la notación
 	// "popiedad:valorPorDefecto" para que no salte un error
 
 	@Value("${new.property:No existe esta propiedad}")
 	private String nuevaPropiedad;
 
-	// Importar valores de YAML
 
 
 
