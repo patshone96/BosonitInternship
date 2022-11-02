@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ProProfile" type="Application" factoryName="Application">
+    <envs>
+      <env name="spring.profiles.active" value="pro" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.example.block5profiles.Block5ProfilesApplication" />
+    <module name="block5-profiles" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.block5profiles.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+      <pattern>
+        <option name="PATTERN" value="com.example.block5profiles.Block5ProfilesApplication" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
