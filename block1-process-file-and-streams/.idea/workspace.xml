@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8818b40c-ccd5-43b5-bfd5-92503b2307c2" name="Changes" comment="Arreglos varios en Bloque 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/CLRApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/CLRApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/Third.java" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/java/com/example/block5commandlinerunner/Third.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../block5-command-line-runner/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../block5-command-line-runner/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
