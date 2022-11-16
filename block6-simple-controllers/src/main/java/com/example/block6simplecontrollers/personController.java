@@ -1,5 +1,4 @@
 package com.example.block6simplecontrollers;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +15,6 @@ public class personController {
     @GetMapping(value= {"user/"})
     public String greetingNull(){
         return("Hi!");
-
     }
 
     // Define the useradd endpoint, which takes data of a person (name, age, city) and as a confirmation
@@ -25,7 +23,6 @@ public class personController {
     public ResponseEntity<Person> posting(@RequestBody Person addPerson){
         addPerson.setAge(addPerson.getAge()+1); // +1 years to age
         return ResponseEntity.ok().body(addPerson);
-
     }
 
     // The data put in the body of the post request follows the JSON structure --> EXAMPLE
