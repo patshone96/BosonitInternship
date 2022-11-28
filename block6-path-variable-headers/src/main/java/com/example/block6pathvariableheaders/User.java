@@ -2,8 +2,11 @@ package com.example.block6pathvariableheaders;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.processing.Generated;
+
 @Component
 public class User {
+
     private int id;
     private String name;
 

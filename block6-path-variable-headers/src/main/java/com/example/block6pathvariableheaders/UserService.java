@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service //Must be annotated with Service in order to be injected
-public class UserRepo {
+public class UserService {
 
         //Stores the users introduced by Post request
         List<User> users = new ArrayList<>();

@@ -11,12 +11,12 @@ public class UserController {
     User user;
 
     @Autowired
-    UserRepo userRepo;
+    UserService userService;
 
     //Returns a User if its id matches with the path variable, else it returns null
     @GetMapping("getUser/{id}")
     public Optional<User> getUser(@PathVariable("id") int id){
-        return userRepo.getUser(id);
+        return userService.getUser(id);
 
     }
 
@@ -29,7 +29,7 @@ public class UserController {
     // This object is added to the list on userRepo and returned as a response
     @PostMapping("addUser")
     public User addUser(@RequestBody User user){
-        userRepo.addUser(user);
+        userService.addUser(user);
         return user;
     }
 
@@ -38,7 +38,7 @@ public class UserController {
     public User changeUser(@RequestParam int id,
                            @RequestParam String name){
 
-        Optional<User> u = userRepo.getUser(id); //optional user
+        Optional<User> u = userService.getUser(id); //optional user
 
         User us;
         if(u.isPresent()){ //If the user exists, its name is changed
