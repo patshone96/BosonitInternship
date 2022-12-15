@@ -19,7 +19,7 @@ public class controllerBean {
     PersonService personService;
 
     @Autowired
-    BeanService Bean;
+    beanDefinition bDef;
 
 
     //We map the Path variable {bean} so the response uses a differrent bean deppending on the variable bean
@@ -27,9 +27,9 @@ public class controllerBean {
         public ResponseEntity<Person> beanPerson(@PathVariable(value = "bean", required = false) String bean){
 
         switch (bean){
-            case "Bean1": Bean.Bean1(); break;
-            case "Bean2": Bean.Bean2();break;
-            case "Bean3": Bean.Bean3();break;
+            case "Bean1": bDef.Bean1(); break;
+            case "Bean2": bDef.Bean2();break;
+            case "Bean3": bDef.Bean3();break;
             default:
                 personService.createPerson("Error al elegir el bean");
 

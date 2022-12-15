@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 //Launches a different Bean depending on the Path value on the GET request - BeanController
-public class BeanService {
+public class BeanService implements beanDefinition {
 
     @Autowired
     PersonService personService;
