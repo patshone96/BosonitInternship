@@ -1,8 +1,8 @@
-package com.example.block7crud.Person.Application;
+package com.example.block7crud.person.application;
 
-import com.example.block7crud.Person.Domain.Person;
-import com.example.block7crud.Person.Infrastructure.EmptyFieldsException;
-import com.example.block7crud.Person.Infrastructure.PersonNotFoundException;
+import com.example.block7crud.person.entity.Person;
+import com.example.block7crud.exceptions.EmptyFieldsException;
+import com.example.block7crud.exceptions.PersonNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

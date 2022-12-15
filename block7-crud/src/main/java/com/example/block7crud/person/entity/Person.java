@@ -1,8 +1,6 @@
-package com.example.block7crud.Person.Domain;
+package com.example.block7crud.person.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +15,7 @@ public class Person {
 
     @Id
     @GeneratedValue //Auto generated value  for the ID
-    private Integer id;
+    private Integer id_person;
 
     @Column
     private String name;

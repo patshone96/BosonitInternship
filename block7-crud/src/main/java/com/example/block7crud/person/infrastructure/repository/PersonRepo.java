@@ -1,11 +1,13 @@
-package com.example.block7crud.Person.Infrastructure;
+package com.example.block7crud.person.infrastructure.repository;
 
-import com.example.block7crud.Person.Domain.Person;
+import com.example.block7crud.person.entity.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
+@Repository
 //Person repository that extends the CRUD repository, gaining access to a series of funtions to perform a CRUD
 public interface PersonRepo extends CrudRepository<Person, Integer> {
 

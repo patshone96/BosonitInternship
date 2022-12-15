@@ -1,4 +1,4 @@
-package com.example.block7crud.Person.Infrastructure;
+package com.example.block7crud.exceptions;
 
 public class EmptyFieldsException extends RuntimeException {
     public EmptyFieldsException() {

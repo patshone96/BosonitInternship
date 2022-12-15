@@ -1,8 +1,10 @@
-package com.example.block7crud.Person.Infrastructure;
+package com.example.block7crud.person.infrastructure.controller;
 
 
-import com.example.block7crud.Person.Domain.Person;
-import com.example.block7crud.Person.Application.PersonService;
+import com.example.block7crud.exceptions.EmptyFieldsException;
+import com.example.block7crud.exceptions.PersonNotFoundException;
+import com.example.block7crud.person.entity.Person;
+import com.example.block7crud.person.application.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -98,7 +100,7 @@ public class PersonController {
 
     }
 
-    //This method hadled EmptyFieldException returning a BadRequest code
+    //This method handled EmptyFieldException returning a BadRequest code
     @ExceptionHandler(EmptyFieldsException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> emptyFields(){
