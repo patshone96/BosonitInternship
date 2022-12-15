@@ -1,5 +1,4 @@
 package com.example.block7crudvalidation.person.Infrastructure.controller;
-
 import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonFull;
 import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonSimple;
 import com.example.block7crudvalidation.person.entity.Person;
