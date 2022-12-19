@@ -49,6 +49,7 @@ public class PersonController {
 
     }
 
+    //Obtain a person by its ID
     @GetMapping("get/{id}")
     //If the ID does not exist in the REPO, a PersonNotFoundException will be thrown
     public Person getPersonById(@PathVariable Integer id) throws PersonNotFoundException{
@@ -57,7 +58,7 @@ public class PersonController {
 
     }
 
-
+    //Obtain a person or a collection of them by name
     @GetMapping("get/name/{name}")
     public ArrayList<Person> getPersonByName(@PathVariable String name) throws PersonNotFoundException{
 
