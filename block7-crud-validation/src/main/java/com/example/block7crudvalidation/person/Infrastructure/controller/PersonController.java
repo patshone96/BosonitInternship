@@ -28,8 +28,7 @@ public class PersonController {
 
     @GetMapping("/teacher/{id}")
     public DTOTeacherFull getProfesor(@PathVariable Integer id) throws EntityNotFoundException{
-       ResponseEntity<DTOTeacherFull> full = new RestTemplate().getForEntity("http://localhost:8081/teacher/get/1?outputType=full", DTOTeacherFull.class);
-
+       ResponseEntity<DTOTeacherFull> full = new RestTemplate().getForEntity("http://localhost:8081/teacher/wideGet/1", DTOTeacherFull.class);
        if(full.getStatusCode() == HttpStatus.OK){
            return full.getBody();
        }else{

@@ -32,20 +32,30 @@ public class TeacherController {
 
     }
 
+    @GetMapping("wideGet/{id}")
+    //This Get is used to get response for another server
+    public DTOTeacherFull getTeacherByID(@PathVariable Integer id) throws EntityNotFoundException{
+
+            DTOTeacherFull full = new DTOTeacherFull( teacherService.getTeacher(id));
+            return full;
+
+
+    }
+
+
     @GetMapping("get/{id}")
     //If the ID does not exist in the REPO, a PersonNotFoundException will be thrown
-    public DTOTeacherFull getTeacherByID(@PathVariable Integer id, @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException{
+    public String getTeacherByID(@PathVariable Integer id, @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException{
 
         if(outputType.equals("full")){
             DTOTeacherFull full = new DTOTeacherFull( teacherService.getTeacher(id));
-            return full;
-            //return full.toString();
+            return full.toString();
+
 
         }else{
-            DTOTeacherFull full = new DTOTeacherFull( teacherService.getTeacher(id));
-            return full;
-            //DTOTeacherSimple simple = new DTOTeacherSimple( teacherService.getTeacher(id));
-            //return simple.toString();
+
+            DTOTeacherSimple simple = new DTOTeacherSimple( teacherService.getTeacher(id));
+            return simple.toString();
 
         }
 
