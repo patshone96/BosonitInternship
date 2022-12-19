@@ -3,12 +3,15 @@ package com.example.block7crudvalidation.teacher.infrastructure.dtos;
 import com.example.block7crudvalidation.teacher.entity.Teacher;
 import lombok.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Getter
 @Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DTOTeacherFull {
+public class DTOTeacherFull implements Serializable {
 
     private Teacher teacher;
 

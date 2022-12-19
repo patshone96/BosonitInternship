@@ -41,5 +41,4 @@ public class Teacher implements Serializable {
         this.branch = branch;
     }
 
-
 }

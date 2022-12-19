@@ -1,5 +1,4 @@
 package com.example.block7crudvalidation.topic.service;
-
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.block7crudvalidation.topic.entity.Topic;
@@ -7,19 +6,24 @@ import com.example.block7crudvalidation.topic.infrastructure.repository.TopicRep
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class TopicServiceImpl implements TopicService {
 
     @Autowired
     TopicRepo topicRepo;
 
+
     @Override
     public Topic getTopic(Integer id) throws EntityNotFoundException {
-        if(topicRepo.findById(id).isEmpty()){
-            throw new EntityNotFoundException();
-        }else{
-            return topicRepo.findById(id).get();
-        }
+         Optional<Topic> op = topicRepo.findById(id);
+
+         if (op.isEmpty()){
+             throw new EntityNotFoundException();
+         }else{
+             return op.get();
+         }
     }
 
     @Override
@@ -33,10 +37,11 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void deleteTopic(Integer id) {
-        topicRepo.deleteById(id);
-
+    public void deleteTopic(Integer id) throws EntityNotFoundException {
+        if(topicRepo.findById(id).isEmpty()){
+            throw new EntityNotFoundException();
+        }else{
+            topicRepo.deleteById(id);
+        }
     }
-
-
 }

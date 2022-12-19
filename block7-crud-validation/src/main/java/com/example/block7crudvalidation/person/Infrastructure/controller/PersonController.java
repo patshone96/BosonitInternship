@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,14 @@ public class PersonController {
 
     @GetMapping("/teacher/{id}")
     public DTOTeacherFull getProfesor(@PathVariable Integer id) throws EntityNotFoundException{
-        return new DTOTeacherFull(teacherService.getTeacher(id));
+       ResponseEntity<DTOTeacherFull> full = new RestTemplate().getForEntity("http://localhost:8081/teacher/get/1?outputType=full", DTOTeacherFull.class);
+
+       if(full.getStatusCode() == HttpStatus.OK){
+           return full.getBody();
+       }else{
+           return null;
+       }
+
 
     }
 

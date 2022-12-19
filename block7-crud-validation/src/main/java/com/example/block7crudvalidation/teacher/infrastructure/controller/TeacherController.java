@@ -34,15 +34,18 @@ public class TeacherController {
 
     @GetMapping("get/{id}")
     //If the ID does not exist in the REPO, a PersonNotFoundException will be thrown
-    public String getStudentById(@PathVariable Integer id, @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException{
+    public DTOTeacherFull getTeacherByID(@PathVariable Integer id, @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException{
 
         if(outputType.equals("full")){
             DTOTeacherFull full = new DTOTeacherFull( teacherService.getTeacher(id));
-            return full.toString();
+            return full;
+            //return full.toString();
 
         }else{
-            DTOTeacherSimple simple = new DTOTeacherSimple( teacherService.getTeacher(id));
-            return simple.toString();
+            DTOTeacherFull full = new DTOTeacherFull( teacherService.getTeacher(id));
+            return full;
+            //DTOTeacherSimple simple = new DTOTeacherSimple( teacherService.getTeacher(id));
+            //return simple.toString();
 
         }
 

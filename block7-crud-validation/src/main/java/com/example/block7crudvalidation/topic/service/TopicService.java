@@ -11,7 +11,6 @@ public interface TopicService {
     public Topic getTopic(Integer id) throws EntityNotFoundException;
     public Iterable<Topic> getAll();
     public Topic addTopic(Topic topic) throws UnprocessableEntityException;
-    public void deleteTopic(Integer id);
-
+    public void deleteTopic(Integer id) throws EntityNotFoundException;
 
 }
