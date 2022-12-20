@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+
 
 import java.util.ArrayList;
 
@@ -26,17 +26,27 @@ public class PersonController {
     @Autowired
     TeacherService teacherService;
 
-    @GetMapping("/teacher/{id}")
-    public DTOTeacherFull getProfesor(@PathVariable Integer id) throws EntityNotFoundException{
-       ResponseEntity<DTOTeacherFull> full = new RestTemplate().getForEntity("http://localhost:8081/teacher/wideGet/1", DTOTeacherFull.class);
-       if(full.getStatusCode() == HttpStatus.OK){
-           return full.getBody();
-       }else{
-           return null;
-       }
-
+    //FEIGN
+    //Request to the 8081 server for a teacher. This can be done from another port, e.g. 8080, prepared on run config
+    @GetMapping("teacher/{id}")
+    public String getTeacherFeign(@PathVariable Integer id) throws EntityNotFoundException {
+        DTOTeacherFull full = new DTOTeacherFull(teacherService.getTeacher(id));
+        return full.toString();
 
     }
+
+    //Request to a server on another port using restTemplate and Response Entity
+//    @GetMapping("/teacher/{id}")
+//    public DTOTeacherFull getProfesor(@PathVariable Integer id) throws EntityNotFoundException{
+//       ResponseEntity<DTOTeacherFull> full = new RestTemplate().getForEntity("http://localhost:8081/teacher/wideGet/1", DTOTeacherFull.class);
+//       if(full.getStatusCode() == HttpStatus.OK){
+//           return full.getBody();
+//       }else{
+//           return null;
+//       }
+//
+//
+//    }
 
 
     //POST mapping using /add
@@ -79,6 +89,7 @@ public class PersonController {
 
     }
 
+    //DELETE mapping of a person by id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePerson(@PathVariable Integer id) throws EntityNotFoundException {
         personService.deletePerson(id);

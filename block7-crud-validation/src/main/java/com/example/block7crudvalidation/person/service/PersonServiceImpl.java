@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class PersonServiceImpl implements PersonService {
+public class PersonServiceImpl implements PersonService{
 
     @Autowired
     PersonRepo personRepo;
@@ -32,7 +32,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    //Try to finds all people with the same username
+    //Try to find all people with the same username
     public ArrayList<Person> getUser(String user) throws EntityNotFoundException{
         if(personRepo.findPersonByName(user).isEmpty()){ //If there isn't anyone, we throw an exception
             throw new EntityNotFoundException();
@@ -71,6 +71,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    //Delete a person by id or throw an error if it does not exist on the repo
     public void deletePerson(Integer id) throws EntityNotFoundException {
         if(personRepo.findById(id).isEmpty()){
             throw new EntityNotFoundException();
