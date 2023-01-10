@@ -1,12 +1,11 @@
 package com.example.block7crudvalidation.person.Infrastructure.controller;
+import com.example.block7crudvalidation.person.service.FeignTeacher;
 import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonFull;
 import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonSimple;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.block7crudvalidation.person.service.PersonService;
-import com.example.block7crudvalidation.teacher.infrastructure.dtos.DTOTeacherFull;
-import com.example.block7crudvalidation.teacher.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +23,33 @@ public class PersonController {
     PersonService personService;
 
     @Autowired
-    TeacherService teacherService;
+    FeignTeacher feignTeacher;
 
     //FEIGN
-    //Request to the 8081 server for a teacher. This can be done from another port, e.g. 8080, prepared on run config
+    //Request to the 8080 server for a teacher. This can be done from another port, e.g. 8081, prepared on run config
     @GetMapping("teacher/{id}")
-    public String getTeacherFeign(@PathVariable Integer id) throws EntityNotFoundException {
-        DTOTeacherFull full = new DTOTeacherFull(teacherService.getTeacher(id));
-        return full.toString();
-
+    public String getTeacherFeign(@PathVariable Integer id,  @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException{
+        //DTOTeacherFull full = new DTOTeacherFull(teacherService.getTeacher(id));
+        return feignTeacher.getTeacherByID(id, outputType);
     }
+
+    // Method with Feign
+//    @GetMapping("/feign/{id}")
+//    ResponseEntity<TeacherOutputDTO> getTeacherFeign(@PathVariable("id") String id,
+//                                                     @QueryParam("outputType") String outputType) throws Exception {
+//
+//
+//
+//        try {
+//            ResponseEntity<TeacherOutputDTO> teacherOutputDTO = feignServer.callServer(id, outputType);
+//            return ResponseEntity.ok(teacherOutputDTO.getBody());
+//        } catch (HttpClientErrorException k1) {
+//            throw new Exception("Http code is not 2xx. The server responded: " + k1.getStatusCode() +
+//                    " Cause: " + k1.getResponseBodyAsString());
+//        } catch (RestClientException k2) {
+//            throw new Exception("The server didn't respond: " + k2.getMessage());
+//        }
+//    }
 
     //Request to a server on another port using restTemplate and Response Entity
 //    @GetMapping("/teacher/{id}")
@@ -101,7 +117,6 @@ public class PersonController {
     @ResponseStatus(HttpStatus.NOT_FOUND) //Code of the response
     public String entityNotFound(EntityNotFoundException e){
         return e.getMessage(); //Show the message of the exception
-
     }
 
     //Handles responses when UnprocessableEntityException is thrown

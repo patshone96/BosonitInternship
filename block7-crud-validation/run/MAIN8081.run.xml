@@ -2,7 +2,7 @@
   <configuration default="false" name="MAIN8081" type="Application" factoryName="Application">
     <envs>
       <env name="server.port" value="8081" />
-      <env name="spring.datasource.url" value="jdbc:h2:file:~/ejerciciosJPA2" />
+      <env name="--spring.datasource.url" value="jdbc:h2:file:~/ejerciciosJPA2" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.example.block7crudvalidation.Block7CrudValidationApplication" />
     <module name="block7-crud-validation" />
