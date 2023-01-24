@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>Block10-docker</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>Block10-docker</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -30,17 +30,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>com.h2database</groupId>-->
+<!--			<artifactId>h2</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -67,7 +62,7 @@
 			<configuration>
 				<archive>
 					<manifest>
-						<mainClass>src/main/java/com/example/Block10docker/Block10DockerApplication.java</mainClass>
+						<mainClass>com.example.Block10docker.Block10DockerApplication</mainClass>
 					</manifest>
 				</archive>
 			</configuration>

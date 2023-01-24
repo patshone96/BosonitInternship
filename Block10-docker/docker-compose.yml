@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+
+  docker_spring_boot:
+    container_name: openjdk17
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+
+    image: block10-docker:1
+    ports:
+      - "8080:8080"
+    networks:
+      - bosonit-network
+
+  postgres_db:
+    container_name: postgresTest
+    links:
+      - "docker_spring_boot"
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_HOST = 127.0.0.1
+      - POSTGRES_USER= usuario
+      - POSTGRES_PASSWORD= usuario
+      - POSTGRES_DB= develop
+    ports:
+        - "5432:5432"
+    networks:
+      - bosonit-network
+
+
+networks:
+  bosonit-network:
+    driver: bridge
+
+
+
