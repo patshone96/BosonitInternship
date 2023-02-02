@@ -8,28 +8,28 @@ Repository of the exercices done while doing a Backend internship at Bosonit
  
 ## Maven and Git
 
-  - How to pack a Maven project [click here](www.google.com)
-  - Learning Git and creating an online repository [click here](www.google.com)
+  - [How to pack a Maven project] (https://github.com/PatrickOliverB/BosonitPracticas/tree/main/ej3.1-maven-package) 
+  - [Learning Git and creating an online repository] (https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block3-create-repo-git-2/ProyectoGit)
 
 ## Spring Boot (Basic)
 
-- Command Line Runner [click here](www.google.com)
-- Inserting properties [click here](www.google.com)
-- Logging [click here](www.google.com)
-- Profiles [click here](www.google.com)
+- [Command Line Runner](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block5-command-line-runner)
+- [Inserting properties](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block5-properties)
+- [Logging](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block5-logger)
+- [Profiles](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block5-profiles)
 
 ## Spring Web 
 
-  - Controllers [click here](www.google.com)
-  - Person Controller [click here](www.google.com)
-  - Path Variables and Headers [click here](www.google.com)
+  - [Controllers](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block6-simple-controllers)
+  - [Person Controller](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block6-person-controllers)
+  - [Path Variables and Headers](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block6-path-variable-headers)
 
 ## Spring Data (Basic)
 
-  - CRUD (basic) [click here](www.google.com)
-  - CRUD (Validated and extended) [click here](www.google.com)
+  - [CRUD (basic)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud)
+  - [CRUD (Validated and extended)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud-validation)
   
-## Dockerization 
+## Dockerization (in construction)
    
-   - Dockerized app [click here](www.google.com)
+   - [Dockerized app](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block10-docker)
 
