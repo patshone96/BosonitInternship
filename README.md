@@ -1,6 +1,8 @@
 # Bosonit Internship
 Repository of the exercices done while doing a Backend internship at Bosonit
 
+https://github.com/PatrickOliverB/BosonitPracticas/blob/main/computer-g6ddfc61d0_1920.jpg
+
 
 ## Java Development Kit (JDK)
 
