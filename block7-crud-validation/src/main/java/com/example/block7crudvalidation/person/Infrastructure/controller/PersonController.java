@@ -1,7 +1,8 @@
 package com.example.block7crudvalidation.person.Infrastructure.controller;
+import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonInputDTO;
+import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOFull;
+import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOSimple;
 import com.example.block7crudvalidation.person.service.FeignTeacher;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonFull;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.DTOPersonSimple;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
@@ -68,8 +69,8 @@ public class PersonController {
     //POST mapping using /add
     @PostMapping("add")
     //We cast the body of the request and turn it into a Person instance. Then save it using the method addPerson from personServide
-    public Person addPerson(@RequestBody Person person) throws UnprocessableEntityException {
-        return personService.addPerson(person);
+    public PersonOutputDTOFull addPerson(@RequestBody PersonInputDTO person) throws UnprocessableEntityException {
+        return personService.addPerson(person) ;
     }
 
     //GET mapping using /get/person_id
@@ -79,13 +80,13 @@ public class PersonController {
                           @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException {
 
 
-
         if(outputType.equals("full")){
-             DTOPersonFull full = new DTOPersonFull(personService.getPerson(id));
+             PersonOutputDTOFull full = new PersonOutputDTOFull(personService.getPerson(id));
              return full.toString();
 
         }
-        DTOPersonSimple simple = new DTOPersonSimple(personService.getPerson(id));
+
+        PersonOutputDTOSimple simple = new PersonOutputDTOSimple(personService.getPerson(id));
         return simple.toString();
     }
 

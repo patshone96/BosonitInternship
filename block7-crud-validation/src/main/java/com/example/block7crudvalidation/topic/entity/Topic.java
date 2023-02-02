@@ -34,7 +34,6 @@ public class Topic {
     String comments;
 
 
-
     @Column
     String initial_date;
 

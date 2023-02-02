@@ -1,4 +1,6 @@
 package com.example.block7crudvalidation.person.service;
+import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonInputDTO;
+import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOFull;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
@@ -50,22 +52,39 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     //We add a person to the repo
-    public Person addPerson(Person person) throws UnprocessableEntityException {
+    public PersonOutputDTOFull addPerson(PersonInputDTO personDTO) throws UnprocessableEntityException {
 
         //Validate using the Validations class methods. If the validation fails, an exception is thrown
         if(
-                        !Validations.validate_user(person.getUsr())
-                        || !Validations.validate_str_notNull(person.getName())
-                        || !Validations.validate_str_notNull(person.getPassword())
-                        || !Validations.validate_str_notNull(person.getCity())
-                        || !Validations.validate_str_notNull(person.getCompanyMail())
-                                || !Validations.validate_str_notNull(person.getPersonalMail())
-                ||!Validations.validate_date(person.getCreatedDate())
+                        !Validations.validate_user(personDTO.getUsr())
+                        || !Validations.validate_str_notNull(personDTO.getName())
+                        || !Validations.validate_str_notNull(personDTO.getPassword())
+                        || !Validations.validate_str_notNull(personDTO.getCity())
+                        || !Validations.validate_str_notNull(personDTO.getCompanyMail())
+                                || !Validations.validate_str_notNull(personDTO.getPersonalMail())
+                ||!Validations.validate_date(personDTO.getCreatedDate())
         ){
             throw new UnprocessableEntityException();
         }
         // We save the person on the repo and return it
-        return personRepo.save(person);
+
+         Person p = new Person();
+
+        p.setPerson_id(personDTO.getPerson_id());
+        p.setName(personDTO.getName());
+        p.setUsr(personDTO.getUsr());
+        p.setPassword(personDTO.getPassword());
+        p.setSurname(personDTO.getSurname());
+        p.setCity(personDTO.getCity());
+        p.setCompanyMail(personDTO.getCompanyMail());
+        p.setPersonalMail(personDTO.getPersonalMail());
+        p.setActive(personDTO.getActive());
+       p.setCreatedDate(personDTO.getCreatedDate());
+       p.setImageUrl(personDTO.getImageUrl());
+       p.setTerminationDate(personDTO.getTerminationDate());
+
+
+        return new PersonOutputDTOFull(personRepo.save(p));
 
 
     }
