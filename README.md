@@ -4,7 +4,7 @@ Repository of the exercices done while doing a Backend internship at Bosonit
 
 ## Java Development Kit (JDK)
 
-  - [Reading files and Filtering using Streams](www.google.com)
+  - [Reading files and Filtering using Streams](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block1-process-file-and-streams)
  
 ## Maven and Git
 
