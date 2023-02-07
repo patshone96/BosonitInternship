@@ -1,11 +1,10 @@
 package com.example.block7crudvalidation.person.service;
 
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonInputDTO;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOFull;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonInputDTO;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOFull;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

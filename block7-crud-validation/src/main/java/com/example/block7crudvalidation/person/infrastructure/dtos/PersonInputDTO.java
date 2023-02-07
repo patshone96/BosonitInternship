@@ -1,4 +1,4 @@
-package com.example.block7crudvalidation.person.Infrastructure.dtos;
+package com.example.block7crudvalidation.person.infrastructure.dtos;
 
 import com.example.block7crudvalidation.person.entity.Person;
 import lombok.AllArgsConstructor;

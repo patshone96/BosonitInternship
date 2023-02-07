@@ -1,7 +1,7 @@
-package com.example.block7crudvalidation.person.Infrastructure.controller;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonInputDTO;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOFull;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOSimple;
+package com.example.block7crudvalidation.person.infrastructure.controller;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonInputDTO;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOFull;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOSimple;
 import com.example.block7crudvalidation.person.service.FeignTeacher;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;

@@ -1,10 +1,10 @@
 package com.example.block7crudvalidation.person.service;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonInputDTO;
-import com.example.block7crudvalidation.person.Infrastructure.dtos.PersonOutputDTOFull;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonInputDTO;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOFull;
 import com.example.block7crudvalidation.person.entity.Person;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
-import com.example.block7crudvalidation.person.Infrastructure.repository.PersonRepo;
+import com.example.block7crudvalidation.person.infrastructure.repository.PersonRepo;
 import com.example.block7crudvalidation.Validations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

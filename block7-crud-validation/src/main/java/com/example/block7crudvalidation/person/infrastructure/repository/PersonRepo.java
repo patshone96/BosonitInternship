@@ -1,4 +1,4 @@
-package com.example.block7crudvalidation.person.Infrastructure.repository;
+package com.example.block7crudvalidation.person.infrastructure.repository;
 
 import com.example.block7crudvalidation.person.entity.Person;
 import org.springframework.data.jpa.repository.Query;
