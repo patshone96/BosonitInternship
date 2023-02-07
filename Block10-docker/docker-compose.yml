@@ -23,10 +23,9 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_HOST = 127.0.0.1
-      - POSTGRES_USER= usuario
-      - POSTGRES_PASSWORD= usuario
-      - POSTGRES_DB= develop
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=usuario
+      - POSTGRES_DB=develop
     ports:
         - "5432:5432"
     networks:
