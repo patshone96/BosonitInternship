@@ -9,6 +9,7 @@ services:
       dockerfile: Dockerfile
 
 
+
     image: block10-docker:1
     ports:
       - "8080:8080"
