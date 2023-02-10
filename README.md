@@ -30,6 +30,9 @@ Repository of the exercices done while doing a Backend internship at Bosonit
 
   - [CRUD (basic)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud)
   - [CRUD (Validated and extended)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud-validation)
+    + RestTemplate (Extension)
+    + FeignClient (Extension)
+    + CrossOrigin from a FrontEnd app (Extension)
   
 ## Dockerization
    
