@@ -14,7 +14,7 @@ public interface PersonService{
 
     public Person getPerson(Integer id) throws EntityNotFoundException;
     public ArrayList<Person> getUser(String user) throws EntityNotFoundException;
-    public Iterable<Person> getAll();
+    public ArrayList<PersonOutputDTOFull> getAll();
     public PersonOutputDTOFull addPerson(PersonInputDTO PersonDTO) throws UnprocessableEntityException;
     public void deletePerson(Integer id) throws EntityNotFoundException;
     

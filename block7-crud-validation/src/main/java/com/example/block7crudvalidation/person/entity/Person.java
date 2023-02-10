@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -41,13 +43,13 @@ public class Person {
     private Boolean active;
 
     @Column
-    private String createdDate;
+    private Date createdDate;
 
     @Column
     private String imageUrl;
 
     @Column
-    private String terminationDate;
+    private Date terminationDate;
 
 
 

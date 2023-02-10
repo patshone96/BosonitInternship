@@ -46,8 +46,16 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     // We return a Iterable element with all people saved on the repository
-    public Iterable<Person> getAll(){
-        return personRepo.findAll();
+    public ArrayList<PersonOutputDTOFull> getAll(){
+
+        ArrayList<PersonOutputDTOFull> output = new ArrayList<>();
+
+        Iterable<Person> iter = personRepo.findAll();
+
+        iter.forEach(p -> output.add(new PersonOutputDTOFull(p)));
+
+
+        return output;
     }
 
     @Override
@@ -56,13 +64,13 @@ public class PersonServiceImpl implements PersonService{
 
         //Validate using the Validations class methods. If the validation fails, an exception is thrown
         if(
-                        !Validations.validate_user(personDTO.getUsr())
+                        !Validations.validate_user(personDTO.getUsuario())
                         || !Validations.validate_str_notNull(personDTO.getName())
                         || !Validations.validate_str_notNull(personDTO.getPassword())
                         || !Validations.validate_str_notNull(personDTO.getCity())
-                        || !Validations.validate_str_notNull(personDTO.getCompanyMail())
-                                || !Validations.validate_str_notNull(personDTO.getPersonalMail())
-                ||!Validations.validate_date(personDTO.getCreatedDate())
+                        || !Validations.validate_str_notNull(personDTO.getPersonal_email())
+                                || !Validations.validate_str_notNull(personDTO.getCompany_email())
+                //||!Validations.validate_date(personDTO.getCreatedDate())
         ){
             throw new UnprocessableEntityException();
         }
@@ -72,16 +80,16 @@ public class PersonServiceImpl implements PersonService{
 
         p.setPerson_id(personDTO.getPerson_id());
         p.setName(personDTO.getName());
-        p.setUsr(personDTO.getUsr());
+        p.setUsr(personDTO.getUsuario());
         p.setPassword(personDTO.getPassword());
         p.setSurname(personDTO.getSurname());
         p.setCity(personDTO.getCity());
-        p.setCompanyMail(personDTO.getCompanyMail());
-        p.setPersonalMail(personDTO.getPersonalMail());
+        p.setCompanyMail(personDTO.getCompany_email());
+        p.setPersonalMail(personDTO.getPersonal_email());
         p.setActive(personDTO.getActive());
-       p.setCreatedDate(personDTO.getCreatedDate());
-       p.setImageUrl(personDTO.getImageUrl());
-       p.setTerminationDate(personDTO.getTerminationDate());
+       p.setCreatedDate(personDTO.getCreated_date());
+       p.setImageUrl(personDTO.getImagen_url());
+       p.setTerminationDate(personDTO.getTermination_date());
 
 
         return new PersonOutputDTOFull(personRepo.save(p));

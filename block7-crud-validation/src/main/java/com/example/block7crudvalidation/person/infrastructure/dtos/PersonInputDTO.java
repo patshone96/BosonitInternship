@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,31 +15,34 @@ import lombok.Setter;
 public class PersonInputDTO {
 
     private Integer person_id;
-    private String usr;
+
+    private String usuario;
     private String password;
     private String name;
     private String surname;
     private String city;
-    private String companyMail;
-    private String personalMail;
+
+    private String company_email;
+
+    private String personal_email;
     private Boolean active;
-    private String createdDate;
-    private String imageUrl;
-    private String terminationDate;
+    private Date created_date;
+    private String imagen_url;
+    private Date termination_date;
 
     public PersonInputDTO(Person person) {
         this.person_id = person.getPerson_id();
-        this.usr = person.getUsr();
+        this.usuario = person.getUsr();
         this.password = person.getPassword();
         this.surname = person.getSurname();
         this.name = person.getName();
         this.city = person.getCity();
-        this.companyMail = person.getCompanyMail();
-        this.personalMail = person.getPersonalMail();
+        this.company_email = person.getCompanyMail();
+        this.personal_email = person.getPersonalMail();
         this.active = person.getActive();
-        this.createdDate = person.getCreatedDate();
-        this.imageUrl = person.getImageUrl();
-        this.terminationDate = person.getTerminationDate();
+        this.created_date = person.getCreatedDate();
+        this.imagen_url = person.getImageUrl();
+        this.termination_date = person.getTerminationDate();
     }
 
 }
