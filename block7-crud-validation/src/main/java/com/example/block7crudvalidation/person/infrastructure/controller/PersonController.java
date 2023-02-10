@@ -51,7 +51,7 @@ public class PersonController {
 
 
     //Post to https://codepen.io/de4imo/pen/VwMRENP
-    @CrossOrigin()
+        @CrossOrigin(origins = "https://cdpn.io")
     //POST mapping using /add
     @PostMapping("addperson")
     //We cast the body of the request and turn it into a Person instance. Then save it using the method addPerson from personServide
@@ -77,7 +77,7 @@ public class PersonController {
     }
 
     //GET mapping using /getAll
-    @CrossOrigin()
+    @CrossOrigin(origins = "https://cdpn.io")
     @GetMapping("getall")
     //Return an Iterable<Person> with all the people on the repository
     public ArrayList<PersonOutputDTOFull> getAll(){
