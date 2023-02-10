@@ -31,7 +31,7 @@ Repository of the exercices done while doing a Backend internship at Bosonit
   - [CRUD (basic)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud)
   - [CRUD (Validated and extended)](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block7-crud-validation)
   
-## Dockerization (in construction)
+## Dockerization
    
    - [Dockerized app](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block10-docker)
 
