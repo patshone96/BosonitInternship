@@ -2,30 +2,24 @@ package com.example.Block10docker.Person.model;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 
 @Entity
-@Table(name = "persons")
+@AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Getter
 @Setter
 public class Person {
 
     @Id
     @GeneratedValue
-    private Integer ident;
-
-    @Column(name = "name")
+    private Integer id_person;
+    @Column
     private String name;
-
-    @Column(name = "adress")
+    @Column
     private String adress;
-
-    @Column(name= "phone")
+    @Column
     private Integer phone;
 
 

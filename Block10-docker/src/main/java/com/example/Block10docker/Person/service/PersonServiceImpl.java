@@ -4,7 +4,6 @@ import com.example.Block10docker.Exceptions.EntityNotFoundException;
 import com.example.Block10docker.Person.model.Person;
 import com.example.Block10docker.Person.infrastructure.repository.PersonRepo;
 import com.example.Block10docker.Exceptions.UnprocessableEntityException;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,8 +33,8 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person addPerson(Person person) throws UnprocessableEntityException {
 
-        personRepo.save(person);
-        return person;
+        return personRepo.save(person);
+
     }
 
     @Override

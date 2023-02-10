@@ -16,23 +16,23 @@ public class PersonController {
     @Autowired
     PersonService personService;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Person getPerson(@PathVariable Integer id) throws EntityNotFoundException {
         return personService.getPerson(id);
     }
 
 
-    @GetMapping("all")
+    @GetMapping()
     public Iterable<Person> getAll() throws EntityNotFoundException {
         return personService.getAll();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Person addPerson(@RequestBody Person person) throws UnprocessableEntityException {
         return personService.addPerson(person);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deletePersonById(@PathVariable Integer id) throws EntityNotFoundException {
         personService.deletePerson(id);
     }
