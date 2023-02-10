@@ -34,23 +34,7 @@ public class PersonController {
         return feignTeacher.getTeacherByID(id, outputType);
     }
 
-    // Method with Feign
-//    @GetMapping("/feign/{id}")
-//    ResponseEntity<TeacherOutputDTO> getTeacherFeign(@PathVariable("id") String id,
-//                                                     @QueryParam("outputType") String outputType) throws Exception {
-//
-//
-//
-//        try {
-//            ResponseEntity<TeacherOutputDTO> teacherOutputDTO = feignServer.callServer(id, outputType);
-//            return ResponseEntity.ok(teacherOutputDTO.getBody());
-//        } catch (HttpClientErrorException k1) {
-//            throw new Exception("Http code is not 2xx. The server responded: " + k1.getStatusCode() +
-//                    " Cause: " + k1.getResponseBodyAsString());
-//        } catch (RestClientException k2) {
-//            throw new Exception("The server didn't respond: " + k2.getMessage());
-//        }
-//    }
+
 
     //Request to a server on another port using restTemplate and Response Entity
 //    @GetMapping("/teacher/{id}")
