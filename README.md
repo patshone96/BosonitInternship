@@ -37,4 +37,6 @@ Repository of the exercices done while doing a Backend internship at Bosonit
 ## Dockerization
    
    - [Dockerized app](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block10-docker)
-
+   
+## Working with Files 
+   - [Upload and Dowload files](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block11-upload-download-files)
