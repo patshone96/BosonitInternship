@@ -25,11 +25,27 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=usuario
-      - POSTGRES_DB=develop
+      - POSTGRES_DB=person
     ports:
         - "5432:5432"
     networks:
       - bosonit-network
+
+  pgadmin_web:
+    container_name: pgadmin_web
+
+    image: dpage/pgadmin4
+
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres_db
+    networks:
+      - bosonit-network
+
 
 
 networks:
