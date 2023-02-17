@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ej3.1-maven-package" />
+        <module name="Block3-maven-package" />
+        <module name="block3-maven-package" />
       </profile>
     </annotationProcessing>
   </component>
