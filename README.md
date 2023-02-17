@@ -10,7 +10,7 @@ Repository of the exercices done while doing a Backend internship at Bosonit
  
 ## Maven and Git
 
-  - [How to pack a Maven project](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/ej3.1-maven-package) 
+  - [How to pack a Maven project](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block3-maven-package) 
   - [Learning Git and creating an online repository](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block3-create-repo-git-2/ProyectoGit)
 
 ## Spring Boot (Basic)
