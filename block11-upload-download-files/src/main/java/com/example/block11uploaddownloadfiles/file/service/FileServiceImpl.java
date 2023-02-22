@@ -6,6 +6,7 @@ import com.example.block11uploaddownloadfiles.file.model.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.naming.Name;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,21 +23,6 @@ public class FileServiceImpl implements FileService {
     @Autowired
     FileRepository fileRepository;
 
-
-
-    // Save file in local path.
-//    @Override
-//    public void uploadToLocal(MultipartFile multipartFile) {
-//        // Another method to add file in local path.
-//        try {
-//            byte[] data = multipartFile.getBytes();
-//            String uploadFolderPath = "./src/main/downloads";
-//            Path path = Paths.get(uploadFolderPath, multipartFile.getOriginalFilename());
-//            Files.write(path, data);
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
 
 
     @Override
@@ -63,6 +49,9 @@ public class FileServiceImpl implements FileService {
 
             // We create an object file (f) which contains the path + the name of the file to store
             java.io.File fil = new java.io.File(filePath, f.getFileName());
+
+            if (fil.exists()) throw new NameAlreadyUsed();
+
 
             FileOutputStream fos = new FileOutputStream(fil, false);
             fos.write( file.getFileData() );
