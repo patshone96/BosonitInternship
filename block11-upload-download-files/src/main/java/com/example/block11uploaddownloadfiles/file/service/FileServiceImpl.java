@@ -3,15 +3,12 @@ package com.example.block11uploaddownloadfiles.file.service;
 import com.example.block11uploaddownloadfiles.exceptions.NameAlreadyUsed;
 import com.example.block11uploaddownloadfiles.file.architecture.repository.FileRepository;
 import com.example.block11uploaddownloadfiles.file.model.File;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.naming.Name;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -39,7 +36,7 @@ public class FileServiceImpl implements FileService {
                 f.setFileData(file.getFileData());
                 f.setFileName(file.getFileName());
                 f.setCreationDate(new Date());
-                f.setType(file.getType());
+                f.setType(FilenameUtils.getExtension(file.getFileName()));
 
             fileRepository.save(f);
 
@@ -57,7 +54,7 @@ public class FileServiceImpl implements FileService {
             fos.write( file.getFileData() );
             fos.close();
 
-            return "Saved successfully";
+            return file.getFileName() + " saved successfully";
 
     }
 
@@ -83,17 +80,8 @@ public class FileServiceImpl implements FileService {
         }
     }
 
-    @Override
-    public ArrayList<File> getAllFiles() {
-        return null;
-    }
 
 
 
-    @Override
-    public void deleteFile(int idFile) {
 
-
-
-    }
 }

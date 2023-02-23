@@ -16,9 +16,5 @@ public interface FileService {
 
     File getFileByName(String name) throws FileNotFoundException;
 
-    ArrayList<File> getAllFiles();
-
-
-    void deleteFile(int idFile);
 
 }
