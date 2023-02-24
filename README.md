@@ -40,3 +40,6 @@ Repository of the exercices done while doing a Backend internship at Bosonit
    
 ## Working with Files 
    - [Upload and Dowload files](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block11-upload-download-files)
+
+## Kafka Messaging (WORK IN PROCESS)
+   - [Sending and Receiving Messages](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block12-kafka)
