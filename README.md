@@ -1,5 +1,7 @@
 # Bosonit Internship
 Repository of the exercices done while doing a Backend internship at Bosonit
+ 
+- [My LinkedIn](https://www.linkedin.com/in/patrick-oliver-baidez-207166138/)
 
 ![unable to render the image](https://github.com/PatrickOliverB/BosonitPracticas/blob/main/computer-g6ddfc61d0_1920.jpg)
 
@@ -40,3 +42,6 @@ Repository of the exercices done while doing a Backend internship at Bosonit
    
 ## Working with Files 
    - [Upload and Dowload files](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block11-upload-download-files)
+
+## Kafka Messaging (WORK IN PROCESS)
+   - [Sending and Receiving Messages](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block12-kafka)
