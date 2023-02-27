@@ -1,0 +1,5 @@
+//IMPORTANT CHECKING THE application.properties FILE
+// Contains important config parameters for the consuemer and the producer
+
+
+// We need to launch the docker-compose.yml file before starting the app
