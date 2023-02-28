@@ -44,5 +44,9 @@ Repository of the exercices done while doing a Backend internship at Bosonit
    - [Upload and Dowload files](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block11-upload-download-files)
 
 ## Kafka Messaging (WORK IN PROCESS)
-   - [Application 1 - Sends](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block12-kafka)
-   - [Application 2 - Receives](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block12-Kafka2)
+
+App 1 sends messages through and endpoint to a Kafka Topic. App 2 reads the topic and responds through another kafka topic which is read by App 1
+
+   - [Application 1](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block12-kafka)
+   - [Application 2](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block12-Kafka2)
+    
