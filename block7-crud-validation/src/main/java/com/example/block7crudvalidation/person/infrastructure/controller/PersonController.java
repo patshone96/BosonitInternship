@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 @RestController
 //To use any oth the methods, we have to add /person to the path
@@ -48,6 +50,30 @@ public class PersonController {
 //
 //
 //    }
+
+    @GetMapping("/criteria")
+    public Iterable<Person> findPersonBy(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String surname,
+            @RequestParam(required = false) String usr,
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String image
+//            @RequestParam(required = false) Date date
+
+            ) {
+
+        HashMap<String, Object> data = new HashMap<>();
+
+        if(name != null) data.put("name",name);
+        if(surname != null) data.put ("surname", surname);
+        if(usr != null) data.put ("usr", usr);
+        if(city != null) data.put ("city", city);
+        if(image != null) data.put ("imageUrl", image);
+        //if(surname != null) data.put ("surname", surname);
+
+
+        return personService.getCustomQuery(data);
+    }
 
 
     //Post to https://codepen.io/de4imo/pen/VwMRENP

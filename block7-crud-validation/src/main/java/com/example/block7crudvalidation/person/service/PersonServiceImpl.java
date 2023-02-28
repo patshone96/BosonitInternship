@@ -6,9 +6,18 @@ import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.block7crudvalidation.person.infrastructure.repository.PersonRepo;
 import com.example.block7crudvalidation.Validations;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +25,48 @@ public class PersonServiceImpl implements PersonService{
 
     @Autowired
     PersonRepo personRepo;
+
+
+    //CRITERIA BUILDER EXERCISE
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public List<Person> getCustomQuery(
+            HashMap<String, Object> conditions) {
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Person> query = cb.createQuery(Person.class);
+        Root<Person> root = query.from(Person.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        conditions.forEach((field, value) -> {
+            switch (field) {
+                case "name", "surname", "imageUrl":
+                    predicates.add(cb.like(root.get(field),
+                            "%" + value + "%"));
+                    break;
+
+                case "city", "usr":
+                    predicates.add(cb.like(root.get(field),
+                            (String)   value ));
+                    break;
+
+//                case "createdDate":
+//                    predicates.add(cb.like(root.get(field),
+//                            "%" + (String) value + "%"));
+//                    break;
+            }
+        });
+        query.select(root)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        return entityManager
+                .createQuery(query)
+                .getResultList();
+    }
+
+
 
     @Override
     //Get a person by id

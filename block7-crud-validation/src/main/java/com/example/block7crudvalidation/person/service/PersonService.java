@@ -8,6 +8,8 @@ import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public interface PersonService{
@@ -17,6 +19,8 @@ public interface PersonService{
     public ArrayList<PersonOutputDTOFull> getAll();
     public PersonOutputDTOFull addPerson(PersonInputDTO PersonDTO) throws UnprocessableEntityException;
     public void deletePerson(Integer id) throws EntityNotFoundException;
+
+    public List<Person> getCustomQuery(HashMap<String, Object> map);
     
 
 }
