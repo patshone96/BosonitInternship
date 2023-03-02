@@ -23,8 +23,9 @@ import java.util.*;
 public class PersonServiceImpl implements PersonService{
 
     String order = "id";
-    Integer numberPages = 1;
-    Integer pageSize = 4;
+
+    Integer pageNumber = 0;
+    Integer pageSize = 10;
 
     @Autowired
     PersonRepo personRepo;
@@ -32,35 +33,46 @@ public class PersonServiceImpl implements PersonService{
 
     //CRITERIA BUILDER EXERCISE
 
+    //DEFINE entitymanager under the PersistenceContext decorator, not Autowired
     @PersistenceContext
     private EntityManager entityManager;
 
+    //We're returning a list of Person elements. We pass a hashmap as an argument,
+    // with a String as identifier of the object
     public List<Person> getCustomQuery(
             HashMap<String, Object> conditions) {
 
+        //We Instantiate a criteria builder using the EntityManager instance
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        //Determine which class we're querying
         CriteriaQuery<Person> query = cb.createQuery(Person.class);
+        //Stablish the root from wich we're doing the query
         Root<Person> root = query.from(Person.class);
 
+        //Define a List of elements which'll be returned after the query
         List<Predicate> predicates = new ArrayList<>();
 
+        //Switch using the tag field
         conditions.forEach((field, value) -> {
             switch (field) {
+                //Return the objects which field values contain a part of the string we look for
                 case "name", "surname", "imageUrl":
                     predicates.add(cb.like(root.get(field),
                             "%" + value + "%"));
                     break;
-
+                //Return the objects which field values names are equal to the string we look for
                 case "city", "usr":
                     predicates.add(cb.like(root.get(field),
                             (String)   value ));
                     break;
 
+                //Return the objects which dates come after the one we pass
                 case "createdDate":
 
                     predicates.add(cb.greaterThan(root.get(field), DateFormatUtil.format((Date)value)));
                     break;
 
+                // If order is specified, the results will appear ordered by name or usr. By default they're ordered by id
                 case "order":
                     if(((String) value).equals("name")){
                         order = "name";
@@ -70,32 +82,38 @@ public class PersonServiceImpl implements PersonService{
                         order = "usr";
                     }
 
-//                case "pages":
-//                    numberPages = Integer.parseInt(((String)value));
-//
-//                case "size":
-//                    pageSize = Integer.parseInt(((String)value));
+
+                    //Set the Number of the page we're on, by default its 0, but it's a required param on the controller
+                case "pageNumber":
+                    pageNumber = (Integer) value;
+
+                    //Set the size of the pages, by default it's 10
+                case "size":
+                    pageSize = (Integer) value;
 
 
 
             }
         });
 
+        //Using the root, we order asc by the value of order (i.e. id, name or usr) and then generate an array
         query.select(root)
                 .orderBy(cb.asc(root.get(order)))
                 .where(predicates.toArray(new Predicate[predicates.size()]));
 
 
+        //Using the entity manager we generate a List as a result of the query
         List<Person> people = entityManager
                 .createQuery(query)
                 .getResultList();
 
-        // PagedListHolder class to create pagination
+        // We user the PagedListHolder class to define pagination
         PagedListHolder<Person> page = new PagedListHolder<Person>(people);
         page.setPageSize(pageSize); // Elements per page
-        page.setPage(numberPages); // Number of pages
+        page.setPage(pageNumber); // Page we're on
 
 
+        //Finally, return the query paginated
         return page.getPageList();  // Returns the pages
 
 

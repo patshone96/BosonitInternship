@@ -51,6 +51,8 @@ public class PersonController {
 //
 //    }
 
+    //Enpoint to test CRITERIA BUILDER
+    //We can pass different parameters, and only pageNumber is required
     @GetMapping("/criteria")
     public Iterable<Person> findPersonBy(
             @RequestParam(required = false) String name,
@@ -60,12 +62,11 @@ public class PersonController {
             @RequestParam(required = false) String image,
             @RequestParam(required = false) Date date,
             @RequestParam(required = false) String order,
-            @RequestParam(required = false) Integer pages,
+            @RequestParam Integer pageNumber,
             @RequestParam(required = false) Integer size
-
-
             ) {
 
+        //Generate a hashmap in which we determine the parameters by which we're querying
         HashMap<String, Object> data = new HashMap<>();
 
         if(name != null) data.put("name",name);
@@ -75,10 +76,10 @@ public class PersonController {
         if(image != null) data.put ("imageUrl", image);
         if(date != null) data.put ("createdDate", date);
         if(order != null) data.put ("order", order);
-//        if(pages != null) data.put ("pages", pages);
-//        if(size != null) data.put ("size", size);
+        if(pageNumber != null) data.put ("pageNumber", pageNumber);
+        if(size != null) data.put ("size", size);
 
-
+        //We call for the query method which is defined on the PersonServiceImpl and pass the hasmap as an argument
         return personService.getCustomQuery(data);
     }
 
