@@ -23,7 +23,7 @@ public class KafkaConsumer {
 
     //private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    //Listen to the bosonit1 kafka topic
+//    Listen to the bosonit1 kafka topic
     @KafkaListener(topics = "bosonit1", groupId = "Grupo1")
     public void consume(String message) throws InterruptedException {
 
@@ -37,8 +37,8 @@ public class KafkaConsumer {
         kafkaProducer.sendMessage(answers[random.nextInt(4)]);
 
 
-
-
     }
+
+
 
 }
