@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MAIN 2" type="Application" factoryName="Application">
+    <envs>
+      <env name="server.port" value=" 8082" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.example.block12kafka.Block12KafkaApplication" />
+    <module name="block12-kafka" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

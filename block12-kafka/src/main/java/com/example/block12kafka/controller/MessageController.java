@@ -15,6 +15,7 @@ public class MessageController {
     private KafkaProducer kafkaProducer;
 
 
+
     //This get method reads the "message" parameter on the endpoint and sends its content to
     // a kafka topic through the kafkaProducer instance. Then returns a message to the client
     // Showing that everything has worked fine
@@ -24,4 +25,5 @@ public class MessageController {
         kafkaProducer.sendMessage(messsage);
         return ResponseEntity.ok("Message sent to the topic");
     }
+
 }
