@@ -2,17 +2,19 @@ package com.example.block7crudvalidation.person.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {
+
+
 
     @Id
     @GeneratedValue //Auto generated value  for the ID
@@ -54,3 +56,5 @@ public class Person {
 
 
 }
+
+

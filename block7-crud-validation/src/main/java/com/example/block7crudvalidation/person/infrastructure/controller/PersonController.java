@@ -57,8 +57,12 @@ public class PersonController {
             @RequestParam(required = false) String surname,
             @RequestParam(required = false) String usr,
             @RequestParam(required = false) String city,
-            @RequestParam(required = false) String image
-//            @RequestParam(required = false) Date date
+            @RequestParam(required = false) String image,
+            @RequestParam(required = false) Date date,
+            @RequestParam(required = false) String order,
+            @RequestParam(required = false) Integer pages,
+            @RequestParam(required = false) Integer size
+
 
             ) {
 
@@ -69,7 +73,10 @@ public class PersonController {
         if(usr != null) data.put ("usr", usr);
         if(city != null) data.put ("city", city);
         if(image != null) data.put ("imageUrl", image);
-        //if(surname != null) data.put ("surname", surname);
+        if(date != null) data.put ("createdDate", date);
+        if(order != null) data.put ("order", order);
+//        if(pages != null) data.put ("pages", pages);
+//        if(size != null) data.put ("size", size);
 
 
         return personService.getCustomQuery(data);

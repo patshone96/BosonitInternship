@@ -1,4 +1,5 @@
 package com.example.block7crudvalidation.person.service;
+import com.example.block7crudvalidation.DateFormatUtil;
 import com.example.block7crudvalidation.person.infrastructure.dtos.PersonInputDTO;
 import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOFull;
 import com.example.block7crudvalidation.person.entity.Person;
@@ -8,20 +9,22 @@ import com.example.block7crudvalidation.person.infrastructure.repository.PersonR
 import com.example.block7crudvalidation.Validations;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class PersonServiceImpl implements PersonService{
+
+    String order = "id";
+    Integer numberPages = 1;
+    Integer pageSize = 4;
 
     @Autowired
     PersonRepo personRepo;
@@ -53,17 +56,49 @@ public class PersonServiceImpl implements PersonService{
                             (String)   value ));
                     break;
 
-//                case "createdDate":
-//                    predicates.add(cb.like(root.get(field),
-//                            "%" + (String) value + "%"));
-//                    break;
+                case "createdDate":
+
+                    predicates.add(cb.greaterThan(root.get(field), DateFormatUtil.format((Date)value)));
+                    break;
+
+                case "order":
+                    if(((String) value).equals("name")){
+                        order = "name";
+                    }
+
+                    if(((String) value).equals("usr")){
+                        order = "usr";
+                    }
+
+//                case "pages":
+//                    numberPages = Integer.parseInt(((String)value));
+//
+//                case "size":
+//                    pageSize = Integer.parseInt(((String)value));
+
+
+
             }
         });
+
         query.select(root)
+                .orderBy(cb.asc(root.get(order)))
                 .where(predicates.toArray(new Predicate[predicates.size()]));
-        return entityManager
+
+
+        List<Person> people = entityManager
                 .createQuery(query)
                 .getResultList();
+
+        // PagedListHolder class to create pagination
+        PagedListHolder<Person> page = new PagedListHolder<Person>(people);
+        page.setPageSize(pageSize); // Elements per page
+        page.setPage(numberPages); // Number of pages
+
+
+        return page.getPageList();  // Returns the pages
+
+
     }
 
 
