@@ -32,11 +32,11 @@ public class CabeceraFra implements Serializable {
     private Cliente client;
 
 
-//    @OneToMany(fetch=FetchType.EAGER,
-//            cascade = CascadeType.ALL)
-//    @JoinColumn(name="Lines")
-//    private List<LineasFra> lineasFra;
-
-    @OneToMany(mappedBy="linFraID")
+    @OneToMany(fetch=FetchType.LAZY,
+            cascade = CascadeType.DETACH)
+    @JoinColumn(name="Lines")
     private List<LineasFra> lineasFra;
+
+//    @OneToMany(mappedBy="linFraID")
+//    private List<LineasFra> lineasFra;
 }

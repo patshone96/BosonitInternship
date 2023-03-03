@@ -19,7 +19,7 @@ public class FacturaController {
     @GetMapping
     public ResponseEntity<List<CabeceraFra>> response(
     ){
-        return new ResponseEntity<List<CabeceraFra>>(cabeceraFraService.getFacturas(), HttpStatus.OK);
+        return new ResponseEntity<>(cabeceraFraService.getFacturas(), HttpStatus.OK);
 
     }
 

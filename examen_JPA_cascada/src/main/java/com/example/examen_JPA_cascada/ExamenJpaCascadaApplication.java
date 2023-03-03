@@ -33,7 +33,6 @@ public class ExamenJpaCascadaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ExamenJpaCascadaApplication.class, args);
 
-
 	}
 
 	@PostConstruct
@@ -51,13 +50,9 @@ public class ExamenJpaCascadaApplication {
 		cab.setClient(cli1);
 		cab.setImporteFra(10);
 
-
-
 		lineasFra.setProdName("Caracoles");
 		lineasFra.setPrice(5);
 		lineasFra.setQuantity(2);
-
-		//lineasFra.setCabeceraFra(cf1);
 
 
 
