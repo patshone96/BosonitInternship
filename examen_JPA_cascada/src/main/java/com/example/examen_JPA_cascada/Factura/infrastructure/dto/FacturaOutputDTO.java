@@ -1,4 +1,4 @@
-package com.example.examen_JPA_cascada.CabeceraFra.infrastructure.dto;
+package com.example.examen_JPA_cascada.Factura.infrastructure.dto;
 
 import com.example.examen_JPA_cascada.CabeceraFra.model.CabeceraFra;
 import com.example.examen_JPA_cascada.Cliente.model.Cliente;
@@ -12,16 +12,16 @@ import java.util.List;
 public class FacturaOutputDTO {
 
 
-    private Integer fraID;
+     Integer fraID;
 
 
-    private double importeFra;
+     double importeFra;
 
 
-    private Cliente client;
+     Cliente client;
 
 
-    private List<LineasFra> lineasFra;
+     List<LineasFra> lineasFra;
 
     public FacturaOutputDTO(CabeceraFra cf){
 

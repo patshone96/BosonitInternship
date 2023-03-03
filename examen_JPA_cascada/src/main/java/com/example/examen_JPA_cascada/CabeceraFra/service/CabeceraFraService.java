@@ -1,7 +1,7 @@
 package com.example.examen_JPA_cascada.CabeceraFra.service;
 
-import com.example.examen_JPA_cascada.CabeceraFra.infrastructure.dto.FacturaOutputDTO;
 import com.example.examen_JPA_cascada.CabeceraFra.model.CabeceraFra;
+import com.example.examen_JPA_cascada.LineasFra.infrastructure.dto.LineasFraInputDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,5 +14,7 @@ public interface CabeceraFraService{
     public String deleteCabecera(Integer id);
 
     public List<CabeceraFra> getFacturas();
+
+    public CabeceraFra addLine(LineasFraInputDTO linea);
 
 }

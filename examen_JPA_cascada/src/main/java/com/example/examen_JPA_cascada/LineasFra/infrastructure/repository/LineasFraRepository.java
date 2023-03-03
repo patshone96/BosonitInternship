@@ -1,4 +1,4 @@
-package com.example.examen_JPA_cascada.LineasFra.infrastructure;
+package com.example.examen_JPA_cascada.LineasFra.infrastructure.repository;
 
 import com.example.examen_JPA_cascada.LineasFra.model.LineasFra;
 import org.springframework.data.jpa.repository.JpaRepository;
