@@ -51,7 +51,7 @@ public class PersonController {
 //
 //    }
 
-    //Enpoint to test CRITERIA BUILDER
+    //Endpoint to test CRITERIA BUILDER
     //We can pass different parameters, and only pageNumber is required
     @GetMapping("/criteria")
     public Iterable<Person> findPersonBy(
