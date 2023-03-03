@@ -60,14 +60,10 @@ public class ExamenJpaCascadaApplication {
 		lineasFra2.setPrice(1);
 		lineasFra2.setQuantity(2);
 
-		//lineasFra2.setCabeceraFra(cf1);
-
-		lineasFra = lineasFraService.addLineas(lineasFra);
-		lineasFra2 = lineasFraService.addLineas(lineasFra2);
 
 		List<LineasFra> lineas = new ArrayList<>();
-		lineas.add(lineasFra2);
-		lineas.add(lineasFra);
+		lineas.add(lineasFraService.addLineas(lineasFra));
+		lineas.add(lineasFraService.addLineas(lineasFra2));
 
 		cab.setLineasFra(lineas);
 

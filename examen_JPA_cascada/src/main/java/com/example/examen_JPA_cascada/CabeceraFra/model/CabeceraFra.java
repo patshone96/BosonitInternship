@@ -25,9 +25,9 @@ public class CabeceraFra implements Serializable {
     private Integer fraID;
 
     @Column
-    private double importeFra;
+    private double importeFra = 0;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "clientID")
     private Cliente client;
 

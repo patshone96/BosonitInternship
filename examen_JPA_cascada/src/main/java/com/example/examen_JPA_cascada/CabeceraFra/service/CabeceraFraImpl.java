@@ -3,11 +3,13 @@ package com.example.examen_JPA_cascada.CabeceraFra.service;
 import com.example.examen_JPA_cascada.CabeceraFra.infrastructure.dto.FacturaOutputDTO;
 import com.example.examen_JPA_cascada.CabeceraFra.infrastructure.repository.CabeceraFraRepository;
 import com.example.examen_JPA_cascada.CabeceraFra.model.CabeceraFra;
+import jakarta.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CabeceraFraImpl implements CabeceraFraService {
@@ -22,19 +24,25 @@ public class CabeceraFraImpl implements CabeceraFraService {
     }
 
     @Override
-    public List<CabeceraFra> getFacturas() {
+    public String deleteCabecera(Integer id) {
 
-        List<FacturaOutputDTO> facturas = new ArrayList<>();
+        Optional<CabeceraFra> op = cabeceraFraRepository.findById(id);
 
-        ArrayList<CabeceraFra> cb = (ArrayList<CabeceraFra>) cabeceraFraRepository.findAll();
-
-        for (CabeceraFra c: cb) {
-            facturas.add(new FacturaOutputDTO(c));
-
+        if (op.isEmpty()){
+            throw new NoResultException("Factura not found");
+        }else{
+            cabeceraFraRepository.deleteById(id);
         }
 
-       return cabeceraFraRepository.findAll();
 
+
+        return "Factura eliminada";
+    }
+
+    @Override
+    public List<CabeceraFra> getFacturas() {
+
+       return cabeceraFraRepository.findAll();
 
     }
 }

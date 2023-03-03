@@ -11,6 +11,8 @@ public interface CabeceraFraService{
 
     public CabeceraFra addCabecera(CabeceraFra cab);
 
+    public String deleteCabecera(Integer id);
+
     public List<CabeceraFra> getFacturas();
 
 }
