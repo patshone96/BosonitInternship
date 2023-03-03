@@ -48,4 +48,8 @@ App 1 sends messages through and endpoint to a Kafka Topic. App 2 reads the topi
 
    - [Application 1](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/block12-kafka)
    - [Application 2](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block12-Kafka2)
+   
+## Examen JPA 
+
+- [Examen JPA](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/examen_JPA_cascada)
     
