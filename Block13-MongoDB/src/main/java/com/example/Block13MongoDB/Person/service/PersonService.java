@@ -5,7 +5,6 @@ import com.example.Block13MongoDB.Person.infrastructure.dtos.PersonOutputDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -19,7 +18,7 @@ public interface PersonService {
 
     public String delete(long id) throws FileNotFoundException;
 
-    public PersonOutputDTO modify(long id);
+    public PersonOutputDTO modify(PersonInputDTO personInputDTO) throws FileNotFoundException;
 
 
 

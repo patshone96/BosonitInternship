@@ -50,6 +50,14 @@ public class PersonCrontroller {
         return personService.delete(id);
     }
 
+    @PutMapping()
+    public PersonOutputDTO modify(
+            @RequestBody PersonInputDTO personInputDTO
+    ) throws FileNotFoundException {
+
+        return personService.modify(personInputDTO);
+
+    }
 
     //Handles responses when a FileNotFoundException is thrown
     @ExceptionHandler(FileNotFoundException.class)

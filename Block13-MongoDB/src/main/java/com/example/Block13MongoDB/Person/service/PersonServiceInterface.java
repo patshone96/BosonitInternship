@@ -77,7 +77,20 @@ public class PersonServiceInterface implements PersonService{
     }
 
     @Override
-    public PersonOutputDTO modify(long id) {
-        return null;
+    public PersonOutputDTO modify(PersonInputDTO personInputDTO) throws FileNotFoundException {
+
+        //Try to retrieve the person
+        Optional<Person> op = personRepository.findById(personInputDTO.getId());
+
+        //If no person is found, an Exception is thrown
+        if(op.isEmpty()){
+            throw new FileNotFoundException("Person not found");
+        }
+
+        //Save the changes and return an output DTO
+        return new PersonOutputDTO(personRepository.save(personInputDTO.toPerson()));
+
+
+
     }
 }
