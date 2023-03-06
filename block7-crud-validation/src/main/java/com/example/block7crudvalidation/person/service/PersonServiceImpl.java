@@ -11,12 +11,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.beans.support.PagedListHolder;
-import org.springframework.context.annotation.PropertySource;
+
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -24,7 +23,7 @@ public class PersonServiceImpl implements PersonService{
 
     String order = "id";
 
-    Integer pageNumber = 0;
+    Integer pageNumber;
     Integer pageSize = 10;
 
     @Autowired
@@ -74,22 +73,25 @@ public class PersonServiceImpl implements PersonService{
 
                 // If order is specified, the results will appear ordered by name or usr. By default they're ordered by id
                 case "order":
-                    if(((String) value).equals("name")){
+                    if(value.equals("name")){
                         order = "name";
                     }
 
-                    if(((String) value).equals("usr")){
+                    if( value.equals("usr")){
                         order = "usr";
                     }
+                    break;
 
 
                     //Set the Number of the page we're on, by default its 0, but it's a required param on the controller
                 case "pageNumber":
                     pageNumber = (Integer) value;
+                    break;
 
                     //Set the size of the pages, by default it's 10
                 case "size":
                     pageSize = (Integer) value;
+                    break;
 
 
 
@@ -107,10 +109,11 @@ public class PersonServiceImpl implements PersonService{
                 .createQuery(query)
                 .getResultList();
 
-        // We user the PagedListHolder class to define pagination
+        // We use the PagedListHolder class to define pagination
         PagedListHolder<Person> page = new PagedListHolder<Person>(people);
         page.setPageSize(pageSize); // Elements per page
         page.setPage(pageNumber); // Page we're on
+
 
 
         //Finally, return the query paginated
