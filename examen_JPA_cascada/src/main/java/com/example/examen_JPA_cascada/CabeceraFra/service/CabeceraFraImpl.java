@@ -36,6 +36,7 @@ public class CabeceraFraImpl implements CabeceraFraService {
     public String deleteCabecera(Integer id) {
 
         //We check for the CabeceraFra on the repository
+
         Optional<CabeceraFra> op = cabeceraFraRepository.findById(id);
 
         if (op.isEmpty()){ //If there isn't any CabeceraFra with the provided ID, an exception is thrown

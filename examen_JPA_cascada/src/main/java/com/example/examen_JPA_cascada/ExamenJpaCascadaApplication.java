@@ -59,6 +59,7 @@ public class ExamenJpaCascadaApplication {
 		lineasFra.setQuantity(2);
 
 		//Set the second Line attributes
+
 		lineasFra2.setProdName("Cerezas");
 		lineasFra2.setPrice(1);
 		lineasFra2.setQuantity(2);
@@ -71,7 +72,7 @@ public class ExamenJpaCascadaApplication {
 		//Set the CabeceraFra Lines using the lineas List
 		cab.setLineasFra(lineas);
 
-		//Save the CabeceraFra using the Service
+		//Save the CabeceraFra using the Service ...
 		cabeceraFraService.addCabecera(cab);
 
 	}
