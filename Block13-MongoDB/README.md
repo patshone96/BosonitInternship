@@ -25,5 +25,7 @@
   
   
   
+## Testing Endpoints 
 
+https://api.postman.com/collections/24163488-dcc61a27-a544-465f-9f16-090c502a5f4f?access_key=PMAT-01GTVSEVWAT4E8AG4NGWJSXC6T
 
