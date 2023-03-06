@@ -8,6 +8,10 @@
   1. First create a new poject with an hexagonal structure, and the Person entity 
   
   2. Create the Respository interface which extend the MongoRepository<T, ID> interface and which'll provide the necessary methods for the CRUD operations
+
+  3. Create the Input and Output DTOs for the person entity
+
+  4. Create the Person Service Interface which defines the abstract methods that'll be developed on the Service Implementation
   
   
   
