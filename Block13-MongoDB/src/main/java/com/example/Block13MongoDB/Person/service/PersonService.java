@@ -4,6 +4,7 @@ import com.example.Block13MongoDB.Person.infrastructure.dtos.PersonInputDTO;
 import com.example.Block13MongoDB.Person.infrastructure.dtos.PersonOutputDTO;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface PersonService {
 
     public PersonOutputDTO add(PersonInputDTO personInputDTO);
 
-    public PersonOutputDTO get(Long id);
+    public PersonOutputDTO get(Long id) throws FileNotFoundException;
 
     public List<PersonOutputDTO> getAll();
 
