@@ -18,6 +18,8 @@
   6. Added a new endpoint to the person controller in order to retrieve people by id. Method developed on the Person Service Interface and in case there isn't a person with the provided id, a 404 error response is returned with a message explaining the situation
 
   7. Added a new endpoint to the person controller in order to retrieve all people. Method developed on the Person Service Interface. 
+
+ 8. Added a delete endpoint to the person controller in order to retrieve people by id. Method developed on the Person Service Interface and in case there isn't a person with the provided id, a 404 error response is returned with a message explaining the situation 
   
   
   
