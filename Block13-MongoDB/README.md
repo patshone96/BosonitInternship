@@ -13,6 +13,7 @@
 
   4. Create the Person Service Interface which defines the abstract methods that'll be developed on the Service Implementation
   
+  5. Create the Person controller. The first endpoint will be for a post request so we can add People to the DB. The method is developed on the Person Service Interface
   
   
   
