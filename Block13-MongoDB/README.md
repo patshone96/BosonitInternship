@@ -7,6 +7,8 @@
   
   1. First create a new poject with an hexagonal structure, and the Person entity 
   
+  2. Create the Respository interface which extend the MongoRepository<T, ID> interface and which'll provide the necessary methods for the CRUD operations
+  
   
   
   
