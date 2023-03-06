@@ -59,8 +59,21 @@ public class PersonServiceInterface implements PersonService{
     }
 
     @Override
-    public String delete(long id) {
-        return null;
+    public String delete(long id) throws FileNotFoundException {
+
+
+        //Try to retrieve the person
+        Optional<Person> op = personRepository.findById(id);
+
+        //If no person is found, an Exception is thrown
+        if(op.isEmpty()){
+            throw new FileNotFoundException("Person not found");
+        }
+
+
+        personRepository.deleteById(id);
+
+        return String.format("Person %d successfully deleted", id);
     }
 
     @Override

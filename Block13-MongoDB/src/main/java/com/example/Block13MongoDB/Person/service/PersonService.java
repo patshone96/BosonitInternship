@@ -17,7 +17,7 @@ public interface PersonService {
 
     public List<PersonOutputDTO> getAll();
 
-    public String delete(long id);
+    public String delete(long id) throws FileNotFoundException;
 
     public PersonOutputDTO modify(long id);
 

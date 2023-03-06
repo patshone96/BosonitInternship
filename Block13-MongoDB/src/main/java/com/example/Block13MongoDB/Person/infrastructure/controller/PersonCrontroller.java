@@ -43,6 +43,13 @@ public class PersonCrontroller {
         return (ArrayList<PersonOutputDTO>) personService.getAll();
     }
 
+    @DeleteMapping("{id}")
+    public String delete(
+            @PathVariable Long id
+    ) throws FileNotFoundException {
+        return personService.delete(id);
+    }
+
 
     //Handles responses when a FileNotFoundException is thrown
     @ExceptionHandler(FileNotFoundException.class)
