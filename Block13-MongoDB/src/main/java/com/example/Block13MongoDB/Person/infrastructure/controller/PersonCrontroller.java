@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping
@@ -33,6 +34,13 @@ public class PersonCrontroller {
            @PathVariable Long id
     ) throws FileNotFoundException {
         return personService.get(id);
+    }
+
+    //Get all people stored on the DB
+    @GetMapping("all")
+    public ArrayList<PersonOutputDTO> getAll(
+    ) throws FileNotFoundException {
+        return (ArrayList<PersonOutputDTO>) personService.getAll();
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,8 +46,16 @@ public class PersonServiceInterface implements PersonService{
     }
 
     @Override
-    public List<PersonOutputDTO> getAll() {
-        return null;
+    public ArrayList<PersonOutputDTO> getAll() {
+
+        //We'll return a list of people
+        ArrayList<PersonOutputDTO> people = new ArrayList<>();
+
+        //Ask for a list of people to the repository, cast each person to an output DTO and adding them to the list
+        personRepository.findAll().stream().forEach(p -> people.add(new PersonOutputDTO(p)));
+
+        //Return the outputDTOs
+        return people;
     }
 
     @Override
