@@ -2,16 +2,17 @@ package com.example.Block13MongoDB.Person.infrastructure.dtos;
 
 
 import com.example.Block13MongoDB.Person.model.Person;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @ToString
-public class PersonOutputDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class PersonOutputDTO implements Serializable {
 
 
     long id;
@@ -34,6 +35,8 @@ public class PersonOutputDTO {
         this.imageUrl = person.getImageUrl();
 
     }
+
+
 
 
 }

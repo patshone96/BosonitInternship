@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
@@ -12,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "People")
-public class Person {
+public class Person implements Serializable {
 
     @Id
     private long id;

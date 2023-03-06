@@ -1,16 +1,17 @@
 package com.example.Block13MongoDB.Person.infrastructure.dtos;
 
 import com.example.Block13MongoDB.Person.model.Person;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @ToString
-public class PersonInputDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class PersonInputDTO implements Serializable {
 
      long id;
      String usr;
@@ -41,6 +42,30 @@ public class PersonInputDTO {
          this.terminationDate = person.getTerminationDate();
 
      }
+
+    public Person toPerson(){
+
+         Person person = new Person();
+
+         person.setId(this.id);
+         person.setUsr(this.usr);
+         person.setPassword(this.password);
+
+         person.setName(this.name);
+        person.setSurname(this.surname);
+        person.setCity(this.city);
+
+        person.setCompanyMail(this.companyMail);
+        person.setPersonalMail(this.personalMail);
+        person.setActive(this.active);
+
+        person.setCreatedDate(this.createdDate);
+        person.setImageUrl(this.imageUrl);
+        person.setTerminationDate(this.terminationDate);
+
+        return person;
+
+    }
 
 
 }
