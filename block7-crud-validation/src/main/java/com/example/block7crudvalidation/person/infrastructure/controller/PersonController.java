@@ -87,14 +87,14 @@ public class PersonController {
     //Post to https://codepen.io/de4imo/pen/VwMRENP
         @CrossOrigin(origins = "https://cdpn.io")
     //POST mapping using /add
-    @PostMapping("addperson")
+    @PostMapping
     //We cast the body of the request and turn it into a Person instance. Then save it using the method addPerson from personServide
     public PersonOutputDTOFull addPerson(@RequestBody PersonInputDTO person) throws UnprocessableEntityException {
         return personService.addPerson(person) ;
     }
 
     //GET mapping using /get/person_id
-    @GetMapping("get/{id}")
+    @GetMapping("{id}")
     //Retrieve the value of the path variable, cast it as an integer and use it to get a person from the repository
     public String getById(@PathVariable Integer id,
                           @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException {
@@ -112,7 +112,7 @@ public class PersonController {
 
     //GET mapping using /getAll
     @CrossOrigin(origins = "https://cdpn.io")
-    @GetMapping("getall")
+    @GetMapping()
     //Return an Iterable<Person> with all the people on the repository
     public ArrayList<PersonOutputDTOFull> getAll(){
         return personService.getAll();
@@ -128,7 +128,7 @@ public class PersonController {
     }
 
     //DELETE mapping of a person by id
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<String> deletePerson(@PathVariable Integer id) throws EntityNotFoundException {
         personService.deletePerson(id);
         return ResponseEntity.ok().body(String.format("PERSON WITH ID: %d DELETED", id));
