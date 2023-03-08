@@ -35,6 +35,7 @@ Repository of the exercices done while doing a Backend internship at Bosonit
     + RestTemplate (Extension)
     + FeignClient (Extension)
     + CrossOrigin from a FrontEnd app (Extension)
+    + Criteria Builder and Pagination for querying (Extension)
   
 ## Dockerization
    
