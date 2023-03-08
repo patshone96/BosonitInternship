@@ -32,7 +32,7 @@ public class PersonServiceImpl implements PersonService{
 
     //CRITERIA BUILDER EXERCISE
 
-    //DEFINE entitymanager under the PersistenceContext decorator, not Autowired
+    //DEFINE Entity Manager under the PersistenceContext decorator, not Autowired
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -45,10 +45,10 @@ public class PersonServiceImpl implements PersonService{
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         //Determine which class we're querying
         CriteriaQuery<Person> query = cb.createQuery(Person.class);
-        //Stablish the root from wich we're doing the query
+        //Establish the root from which we're doing the query
         Root<Person> root = query.from(Person.class);
 
-        //Define a List of elements which'll be returned after the query
+        //Define a List of elements which will be returned after the query
         List<Predicate> predicates = new ArrayList<>();
 
         //Switch using the tag field

@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 @RestController
 //To use any oth the methods, we have to add /person to the path
-@RequestMapping()
+@RequestMapping("/person")
 public class PersonController {
 
     @Autowired
@@ -86,8 +86,9 @@ public class PersonController {
 
     //Post to https://codepen.io/de4imo/pen/VwMRENP
         @CrossOrigin(origins = "https://cdpn.io")
-    //POST mapping using /add
-    @PostMapping
+
+    //POST mapping
+    @PostMapping("add")
     //We cast the body of the request and turn it into a Person instance. Then save it using the method addPerson from personServide
     public PersonOutputDTOFull addPerson(@RequestBody PersonInputDTO person) throws UnprocessableEntityException {
         return personService.addPerson(person) ;
@@ -112,7 +113,7 @@ public class PersonController {
 
     //GET mapping using /getAll
     @CrossOrigin(origins = "https://cdpn.io")
-    @GetMapping()
+    @GetMapping("/")
     //Return an Iterable<Person> with all the people on the repository
     public ArrayList<PersonOutputDTOFull> getAll(){
         return personService.getAll();
