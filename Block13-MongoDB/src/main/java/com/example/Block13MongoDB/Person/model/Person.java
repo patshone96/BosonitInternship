@@ -1,7 +1,6 @@
 package com.example.Block13MongoDB.Person.model;
 
 import lombok.*;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
