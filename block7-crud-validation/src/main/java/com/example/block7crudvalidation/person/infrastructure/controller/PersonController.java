@@ -79,7 +79,7 @@ public class PersonController {
         if(pageNumber != null) data.put ("pageNumber", pageNumber);
         if(size != null) data.put ("size", size);
 
-        //We call for the query method which is defined on the PersonServiceImpl and pass the hasmap as an argument
+        //We call for the query method which is defined on the PersonServiceImpl and pass the hashmap as an argument
         return personService.getCustomQuery(data);
     }
 
