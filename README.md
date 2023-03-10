@@ -54,7 +54,7 @@ App 1 sends messages through and endpoint to a Kafka Topic. App 2 reads the topi
 
 - [Examen JPA](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/examen_JPA_cascada)
 
-## MongoDB (Working On It)
+## MongoDB
 
  - [CRUD with MongoDB as DB](https://github.com/PatrickOliverB/BosonitPracticas/tree/main/Block13-MongoDB)
     
