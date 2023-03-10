@@ -2,7 +2,7 @@ package com.example.block7crudvalidation.person.infrastructure.dtos;
 
 import com.example.block7crudvalidation.person.entity.Person;
 
-public class PersonOutputDTOSimple {
+public class PersonOutputDTOSimple extends PersonDTOs{
 
     private Integer person_id;
     private String usr;

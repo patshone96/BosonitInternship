@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonInputDTO {
+public class PersonInputDTO extends PersonDTOs{
 
     private Integer person_id;
 

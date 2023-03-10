@@ -1,4 +1,5 @@
 package com.example.block7crudvalidation.person.infrastructure.controller;
+import com.example.block7crudvalidation.person.infrastructure.dtos.PersonDTOs;
 import com.example.block7crudvalidation.person.infrastructure.dtos.PersonInputDTO;
 import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOFull;
 import com.example.block7crudvalidation.person.infrastructure.dtos.PersonOutputDTOSimple;
@@ -97,18 +98,18 @@ public class PersonController {
     //GET mapping using /get/person_id
     @GetMapping("{id}")
     //Retrieve the value of the path variable, cast it as an integer and use it to get a person from the repository
-    public String getById(@PathVariable Integer id,
-                          @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException {
+    public PersonDTOs getById(@PathVariable Integer id,
+                              @RequestParam(defaultValue = "simple") String outputType) throws EntityNotFoundException {
 
 
         if(outputType.equals("full")){
              PersonOutputDTOFull full = new PersonOutputDTOFull(personService.getPerson(id));
-             return full.toString();
+             return full;
 
         }
 
         PersonOutputDTOSimple simple = new PersonOutputDTOSimple(personService.getPerson(id));
-        return simple.toString();
+        return simple;
     }
 
     //GET mapping using /getAll

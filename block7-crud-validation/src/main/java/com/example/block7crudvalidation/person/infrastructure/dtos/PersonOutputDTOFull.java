@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class PersonOutputDTOFull {
+public class PersonOutputDTOFull extends PersonDTOs{
 
     private Integer person_id;
     private String usuario;
